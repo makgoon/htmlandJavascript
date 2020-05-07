@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+//완성 본
+    //1~110까지 숫자를 반복
+    for(var i = 1030; i <= 1100; i++){
+      //3,6,9 체크를 위하여 숫자를 문자열로 형변환
+      transtype = String(i);
+      //각 문자열의 각 자릿수 하나씩 불러오는 for문
+      for (var j = 0; j < transtype.length; j++){
+        //자릿수의 3,6,9 확인 연산을 위하여 변환
+        numtrans = Number(transtype[j])
+        //for 손벽을 치지 않을 경우를 체크하기 위한 변수 생성
+        var checker = false;
+        //numtrans가 0일 경우 3,6,9가 아닐경우에도 나머지가 0으로 떨어짐
+        if(numtrans == 0){
+          //따라서 0일경우 1로 강제 변환
+          //numtrans가 0일때의 값 마킹 주의, 안하면 0일때도 나머지 0걸려서 다 false남
+          numtrans=1;
+        }
+        //자릿수가 3으로 나누어 떨어질 경우 마킹
+        else if (numtrans%3==0){
+          console.log("짝");
+          //손벽을 치는 경우 숫자를 번복하지 않기 위하여 checker를 true로 변환
+          checker = true;
+          break;
+        }
+      }
+      //손벽을 치지 않을 경우 숫자를 선언하기 위한 함수
+      if(checker == false){
+        console.log(i);
+      }
+    }
+
+
+    //1~110까지 숫자를 반복
+    for(var i = 1030; i <= 1100; i++){
+      //3,6,9 체크를 위하여 숫자를 문자열로 형변환
+      transtype = String(i);
+      var clapcount = 0;
+      var checker = false;
+      //각 문자열의 각 자릿수 하나씩 불러오는 for문
+      for (var j = 0; j < transtype.length; j++){
+        //각 자릿수에 3이 있을 경우 박수를 치기 위한 checker 카운트 및 박수 숫자 카운트 증가
+        if(transtype[j] == '3'){
+          checker = true;
+          clapcount = clapcount + 1;
+        //각 자릿수에 6이 있을 경우 박수를 치기 위한 checker 카운트 및 박수 숫자 카운트 증가
+        }else if(transtype[j] == '6'){
+          checker = true;
+          clapcount = clapcount + 1;
+        //각 자릿수에 9이 있을 경우 박수를 치기 위한 checker 카운트 및 박수 숫자 카운트 증가
+        }else if(transtype[j] == '9'){
+          checker = true;
+          clapcount = clapcount + 1;
+        }
+      }
+      //손벽을 치지 않을 경우 숫자를 선언
+      if(checker == false){
+        console.log(i);
+      //손벽을 치는 경우 몇번을 칠 것인가 카운트
+      }else if(checker == true){
+        console.log("짝".repeat(clapcount));
+        }
+      }
+
+//실패(숫자는 length가 먹히지 않는다. 주의! 꼭 형변환을 실시한 후에 적용할 것)
+    // for(var i = 1; i <= 110; i++){
+    //   transtype = i;
+    //   for (var j = 0; j < transtype.length; j++){
+    //
+    //     var checker = false;
+    //     if (transtype%3==0){
+    //       console.log("짝");
+    //       checker = true;
+    //       break;
+    //     }
+    //   }
+    //   if(checker == false){
+    //     console.log(i);
+    //   }
+    //
+    // }
+
+
+
+
+
+  </script>
+</html>
